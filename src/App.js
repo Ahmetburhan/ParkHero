@@ -65,7 +65,7 @@ class App extends Component {
   render() {
     let place = this.state.places
     let imgStyle = {
-      width: '150px'
+      width: '155px'
     }
     // console.log(place)
     return (
