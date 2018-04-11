@@ -6,10 +6,13 @@ import request from 'superagent';
 
 
 class App extends Component {
-  state = {
-    place:['']
+  constructor(props){
+    super(props)
   }
-componentWillMount() {
+  state = {places:[]}
+
+  componentDidMount () {
+
 
   // http://api.parkwhiz.com/parking/arlington/601-stadium-dr/?start=1297027800&end=1297047600&key=62d882d8cfe5680004fa849286b6ce20
 
@@ -20,7 +23,7 @@ componentWillMount() {
       if(res.ok){
         console.log(res.body)
         this.setState({
-          place: res.body
+          places: res.body
         })
       }
       else{
@@ -28,20 +31,60 @@ componentWillMount() {
         console.log('We found nothing')
       }
     })
-    .catch(err => console.log(err))
+    // .catch(err)
+  };
 
-}
-  render() {
+// componentWillMount() {
+
+
+//   // http://api.parkwhiz.com/parking/arlington/601-stadium-dr/?start=1297027800&end=1297047600&key=62d882d8cfe5680004fa849286b6ce20
+
+//   //http://api.parkwhiz.com/search/?destination=312+N+wacker+Dr,+Chicago&start=1523403449&end=1523414249&key=62d882d8cfe5680004fa849286b6ce20
+
+//   request 
+//     .get('http://api.parkwhiz.com/v4/quotes/?q=coordinates:41.8857256,-87.6369590&start_time=2018-04-23T12:00&end_time=2018-04-23T20:00&api_key=62d882d8cfe5680004fa849286b6ce20').then(res => {
+//       if(res.ok){
+//         console.log(res.body)
+//         this.setState({
+//           place: res.body
+          
+//         })
+//       }
+//       else{
+//         this.setState('Opps we found nothing!')
+//         console.log('We found nothing')
+//       }
+//     })
+//     .catch(err => console.log(err))
+
+//   // fetch('http://api.parkwhiz.com/v4/quotes/?q=coordinates:41.8857256,-87.6369590&start_time=2018-04-23T12:00&end_time=2018-04-23T20:00&api_key=62d882d8cfe5680004fa849286b6ce20' )
+//   // .then ( response => response.json() )
+//   // // .then ( ({results: places}) => this.setState({places}))
+
+// }
+render() {
+  let place = this.state.places 
+  // console.log(place)
     return (
+
+      
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           < h1 className = "App-title" > {
-            this.state.place[0]._embedded["pw:location"].address1
+            // place._embedded["pw:location"].name
             } </h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <ul className="list-group">
+            {place.map(place => (
+              
+              <p key={place._embedded["pw:location"].id}>
+                  {place._embedded["pw:location"].name}
+              </p>
+              
+            ))}
+          </ul>
         </p>
       </div>
     );
