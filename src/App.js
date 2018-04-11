@@ -31,7 +31,7 @@ class App extends Component {
         console.log('We found nothing')
       }
     })
-    // .catch(err)
+    // .catch(err => console.log(err))
   };
 
 // componentWillMount() {
@@ -63,7 +63,7 @@ class App extends Component {
 
 // }
 render() {
-  let place = this.state.places 
+  let place = this.state.places
   // console.log(place)
     return (
 
@@ -75,15 +75,22 @@ render() {
             // place._embedded["pw:location"].name
             } </h1>
         </header>
-        <p className="App-intro">
-          <ul className="list-group">
+        <p className="Place-intro">
+          <ul className="place-group">
             {place.map(place => (
-              
               <p key={place._embedded["pw:location"].id}>
                   {place._embedded["pw:location"].name}
               </p>
-              
             ))}
+            {/* < img key = {place._embedded["pw:location"].id
+            } */}
+            {/* src = {
+                place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL
+            }
+            alt = {
+             place._embedded["pw:location"].id
+            }
+            /> */}
           </ul>
         </p>
       </div>
@@ -92,3 +99,17 @@ render() {
 }
 
 export default App;
+
+
+
+  // < ul className = "list-group-item"
+  // key = {
+  //     place._embedded["pw:location"].id
+  //   } >
+
+  //   <
+  //   img className = "img-responsive"
+  // src = {
+  //   place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL
+  // }
+  // />
