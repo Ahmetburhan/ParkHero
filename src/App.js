@@ -64,6 +64,9 @@ class App extends Component {
   // }
   render() {
     let place = this.state.places
+    let imgStyle = {
+      width: '150px'
+    }
     // console.log(place)
     return (
 
@@ -83,7 +86,7 @@ class App extends Component {
               </p>
             ))}
             {place.map(place => (
-              <img key={place._embedded["pw:location"].id}
+              <img key={place._embedded["pw:location"].id} style= {imgStyle}
             className="user-info__avatar" src={place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL} alt={`${place._embedded["pw:location"].id} avatar`} />
              ))}
           </ul>
