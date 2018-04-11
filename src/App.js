@@ -65,7 +65,13 @@ class App extends Component {
   render() {
     let place = this.state.places
     let imgStyle = {
-      width: '155px'
+      width: '155px',
+      verticalAlign: 'left',
+      borderRadius: '10%',
+      backfaceVisibility: "hidden",
+      // display: 'flex',
+      alignItems: 'left',
+      justifyContent: 'center'
     }
     // console.log(place)
     return (
