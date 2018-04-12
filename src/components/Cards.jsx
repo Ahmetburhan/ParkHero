@@ -2,7 +2,7 @@ import React from 'react';
 // import App from '../App';
 import request from 'superagent';
 import {
-    Card, CardImg, CardText, CardBody,
+    Col, Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
@@ -48,7 +48,7 @@ export default class Cards extends React.Component {
             <h3 className="Place-intro" >
                 <ul className="place-group" > {
                     places.map(place => (
-                        <div>
+                        <div> <Col sm={6} md={4} lg={3} mt={4}>
                             <Card key={
                                 place._embedded["pw:location"].id
                             }>
@@ -61,6 +61,7 @@ export default class Cards extends React.Component {
                                     <Button>Button</Button>
                                 </CardBody>
                             </Card>
+                            </Col>
                         </div>
                        
                        
