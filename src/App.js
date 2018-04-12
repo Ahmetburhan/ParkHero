@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import PlaceListItem from './components/Places';
+import Map from './components/Map';
 
 import './App.css';
-import request from 'superagent';
+// import request from 'superagent';
 class App extends Component {
   constructor(props) {
     super(props)
@@ -18,9 +19,7 @@ class App extends Component {
     
     return ( <div className = "App" >
       <header className = "App-header" >
-      <img src = {logo}
-      className = "App-logo"
-      alt = "logo" / >
+      <Map />
       <h1 className = "App-title" > {
         // place._embedded["pw:location"].name
       } </h1> </header>

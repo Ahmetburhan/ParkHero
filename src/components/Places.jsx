@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import App from '../App';
-import logo from '../logo.svg';
+import React from 'react';
+// import App from '../App';
 import request from 'superagent';
 
 
