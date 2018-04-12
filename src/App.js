@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import PlaceListItem from './components/Places';
 import Map from './components/Map';
+import Cards from './components/Cards';
+
 
 import './App.css';
 // import request from 'superagent';
@@ -24,7 +26,7 @@ class App extends Component {
         // place._embedded["pw:location"].name
       } </h1> </header>
       
-      
+      <Cards />
       <PlaceListItem />
       
       </div>
