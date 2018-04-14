@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^4.1.0",
     "google-map-react": "^0.34.0",
+    "mdbreact": "^4.2.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-iframe": "^1.1.0",

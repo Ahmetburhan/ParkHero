@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import PlaceListItem from './components/Places';
 import Map from './components/Map';
 import Cards from './components/Cards';
+import FooterPage from './components/Footer';
+import Details from './components/Details';
+
+
 // import NavBar from './components/NavBar';
 
 import './App.css';
@@ -29,8 +33,16 @@ class App extends Component {
       
       <Cards />
       <PlaceListItem />
+      <Details />
       
+      
+      <footer className="App-footer" >
+
+      <FooterPage />
+
+      </footer>
       </div>
+
     );
   }
 }

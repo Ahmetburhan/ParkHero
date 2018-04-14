@@ -1,9 +1,11 @@
 import React from 'react';
 // import App from '../App';
 import request from 'superagent';
+import Places from './Places';
 
 
-export default class PlaceListItem extends React.Component {
+
+export default class Details extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -27,8 +29,8 @@ export default class PlaceListItem extends React.Component {
             })
         // .catch(err => console.log(err))
     };
-    render () {
-    
+    render() {
+
         let places = this.state.places
         let imgStyle = {
             width: '155px',
@@ -37,13 +39,11 @@ export default class PlaceListItem extends React.Component {
             backfaceVisibility: "hidden",
             // display: 'flex',
             alignItems: 'left',
-            justifyContent: 'center',
-            flex: '0 0 auto',
-            margin: '0 10px'
+            justifyContent: 'center'
         }
         // console.log(place)
         return (<div className="Places" >
-             <h3 className="Place-intro" >
+            <h3 className="Place-intro" >
                 <ul className="place-group" > {
                     places.map(place => (
                         <div>
@@ -66,4 +66,5 @@ export default class PlaceListItem extends React.Component {
                     ))
                 } </ul> </h3> </div>
         );
-    }}
+    }
+}
