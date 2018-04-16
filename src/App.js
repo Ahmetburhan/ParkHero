@@ -16,7 +16,17 @@ class App extends Component {
     super(props)
   }
   state = {
-    places: []
+    places: [],
+    selected: []
+  }
+  handleClick (e) {
+    // this.setState({
+    //   selected: e.target
+    // })
+    alert('You have clicked on me');
+
+  console.log("clicked", e.target)
+
   }
   componentDidMount() {
 
@@ -31,7 +41,8 @@ class App extends Component {
         // place._embedded["pw:location"].name
       } </h1> </header>
       
-      <Cards />
+      <Cards onClick={this.props.handleClick}/>
+  
       <PlaceListItem />
       <Details />
       

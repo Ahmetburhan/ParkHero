@@ -1,9 +1,13 @@
 import React from 'react';
 // import App from '../App';
 import request from 'superagent';
-import Places from './Places';
-
-
+import {
+    Panel, PanelText
+} from 'react-bootstrap';
+import {
+    Col, Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 export default class Details extends React.Component {
     constructor(props) {
@@ -46,25 +50,52 @@ export default class Details extends React.Component {
             <h3 className="Place-intro" >
                 <ul className="place-group" > {
                     places.map(place => (
-                        <div>
-                            <ol key={
+                        <div> <Col sm={6} md={8} lg={9} mt={8}>
+                            
+                            <Panel bsStyle="info" key={
                                 place._embedded["pw:location"].id
-                            } > {
-                                    place._embedded["pw:location"].name
-                                } </ol>
-                            <img style={
-                                imgStyle
-                            }
-                                className="user-info__avatar"
-                                src={place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL
-                                }
-                                alt={
-                                    `${place._embedded["pw:location"].id} avatar`
-                                }
-                            />
+                            }>
+                                <Panel.Heading>
+                                    <Panel.Title componentClass="h3">{place._embedded["pw:location"].name}</Panel.Title>
+                                </Panel.Heading>
+                                <Panel.Body>
+                                    <Panel.Title componentClass="h6"> {place._embedded["pw:location"].address1}</Panel.Title>
+                                    <div>
+                                        <h6>{place._embedded["pw:location"]._links["pw:reviews"].href}</h6>
+                                    </div>
+                                </Panel.Body>
+                            </Panel>
+
+                        </Col>
                         </div>
+
+
+
+
+
+
+
                     ))
                 } </ul> </h3> </div>
         );
     }
 }
+
+
+{/* <div>
+    <ol key={
+        place._embedded["pw:location"].id
+    } > {
+            place._embedded["pw:location"].name
+        } </ol>
+    <img style={
+        imgStyle
+    }
+        className="user-info__avatar"
+        src={place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL
+        }
+        alt={
+            `${place._embedded["pw:location"].id} avatar`
+        }
+    />
+</div> */}

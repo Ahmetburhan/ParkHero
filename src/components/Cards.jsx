@@ -32,7 +32,7 @@ export default class Cards extends React.Component {
         // .catch(err => console.log(err))
     };
     render() {
-
+        console.log(this.props)
         let places = this.state.places
         let imgStyle = {
             width: '155px',
@@ -51,7 +51,8 @@ export default class Cards extends React.Component {
                         <div> <Col sm={6} md={4} lg={3} mt={4}>
                             <Card key={
                                 place._embedded["pw:location"].id
-                            }>
+                                }
+                                onClick={() => this.props.handleClick()}>
                                 <CardImg top width="50%" src={place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL
                                 } alt="Card image cap" />
                                 <CardBody>
