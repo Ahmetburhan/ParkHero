@@ -17,17 +17,20 @@ class App extends Component {
   }
   state = {
     places: [],
-    selected: []
+    selected: [],
+    selectedPlace:'',
   }
-  handleClick (e) {
+  handleClick = (place) => {
+    console.log(place)
+    this.setState({selectedPlace:place})
     // this.setState({
     //   selected: e.target
-    // })
-    alert('You have clicked on me');
+  //   // })
+  //   alert('You have clicked on me');
 
-  console.log("clicked", e.target)
+  // console.log("clicked", e.target)
 
-  }
+  };
   componentDidMount() {
 
   };
@@ -41,10 +44,10 @@ class App extends Component {
         // place._embedded["pw:location"].name
       } </h1> </header>
       
-      <Cards onClick={this.props.handleClick}/>
+      <Cards handleClick={this.handleClick}/>
   
       <PlaceListItem />
-      <Details />
+      <Details place={this.state.selectedPlace}/>
       
       
       <footer className="App-footer" >

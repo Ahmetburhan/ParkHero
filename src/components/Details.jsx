@@ -9,6 +9,8 @@ import {
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
+// import Cards from 'Cards';
+
 export default class Details extends React.Component {
     constructor(props) {
         super(props)
@@ -22,7 +24,7 @@ export default class Details extends React.Component {
         request
             .get('http://api.parkwhiz.com/v4/quotes/?q=coordinates:41.8857256,-87.6369590&start_time=2018-04-23T12:00&end_time=2018-04-23T20:00&api_key=62d882d8cfe5680004fa849286b6ce20').then(res => {
                 if (res.ok) {
-                    console.log(res.body)
+                    // console.log(res.body)
                     this.setState({
                         places: res.body
                     })
@@ -46,37 +48,54 @@ export default class Details extends React.Component {
             justifyContent: 'center'
         }
         // console.log(place)
+        //let detail = (
+                    // <div> <Col sm={6} md={8} lg={9} mt={8}>
+
+                    //     <Panel bsStyle="info" key={
+                    //         place._embedded["pw:location"].id
+                    //     }>
+                    //         <Panel.Heading>
+                    //             <Panel.Title componentClass="h3">{place._embedded["pw:location"].name}</Panel.Title>
+                    //         </Panel.Heading>
+                    //         <Panel.Body>
+                    //             <Panel.Title componentClass="h6"> {place._embedded["pw:location"].address1}</Panel.Title>
+                    //             <div>
+                    //                 <h6>{place._embedded["pw:location"]._links["pw:reviews"].href}</h6>
+                    //             </div>
+                    //         </Panel.Body>
+                    //     </Panel>
+
+                    // </Col>
+                    // </div>
+       // )
+        let detail;
+        let address1;
+        let name;
+        let reviews;
+        if(this.props.place) {
+            address1 = this.props.place._embedded["pw:location"].address1,
+            name = this.props.place._embedded["pw:location"].name,
+            reviews = this.props.place._embedded["pw:location"]._links["pw:reviews"].href
+        }
         return (<div className="Places" >
             <h3 className="Place-intro" >
-                <ul className="place-group" > {
-                    places.map(place => (
-                        <div> <Col sm={6} md={8} lg={9} mt={8}>
-                            
-                            <Panel bsStyle="info" key={
-                                place._embedded["pw:location"].id
-                            }>
-                                <Panel.Heading>
-                                    <Panel.Title componentClass="h3">{place._embedded["pw:location"].name}</Panel.Title>
-                                </Panel.Heading>
-                                <Panel.Body>
-                                    <Panel.Title componentClass="h6"> {place._embedded["pw:location"].address1}</Panel.Title>
-                                    <div>
-                                        <h6>{place._embedded["pw:location"]._links["pw:reviews"].href}</h6>
-                                    </div>
-                                </Panel.Body>
-                            </Panel>
+                <div className="place-group" > 
+                    <Col sm={6} md={8} lg={9} mt={8}>
+                        <div>{address1}</div>
+                      <Panel bsStyle="info">
+                            <Panel.Heading>
+                                <Panel.Title componentClass="h3">{name}</Panel.Title>
+                            </Panel.Heading>
+                            <Panel.Body>
+                                <Panel.Title componentClass="h6"> {address1}</Panel.Title>
+                                <div>
+                                    <h6>{reviews}</h6>
+                                </div>
+                            </Panel.Body>
+                        </Panel>
 
-                        </Col>
-                        </div>
-
-
-
-
-
-
-
-                    ))
-                } </ul> </h3> </div>
+                    </Col>
+                     </div> </h3> </div>
         );
     }
 }
