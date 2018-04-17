@@ -81,7 +81,6 @@ export default class Details extends React.Component {
             <h3 className="Place-intro" >
                 <div className="place-group" > 
                     <Col sm={6} md={8} lg={9} mt={8}>
-                        <div>{address1}</div>
                       <Panel bsStyle="info">
                             <Panel.Heading>
                                 <Panel.Title componentClass="h3">{name}</Panel.Title>

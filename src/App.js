@@ -43,11 +43,13 @@ class App extends Component {
       <h1 className = "App-title" > {
         // place._embedded["pw:location"].name
       } </h1> </header>
-      
+      <Details place={this.state.selectedPlace} />
+
       <Cards handleClick={this.handleClick}/>
-  
+      <Details place={this.state.selectedPlace} />
+
       <PlaceListItem />
-      <Details place={this.state.selectedPlace}/>
+      {/* <Details place={this.state.selectedPlace}/> */}
       
       
       <footer className="App-footer" >

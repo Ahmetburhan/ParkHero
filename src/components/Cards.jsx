@@ -5,6 +5,9 @@ import {
     Col, Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import {
+    col
+} from 'react-bootstrap';
 
 
 export default class Cards extends React.Component {
@@ -53,7 +56,7 @@ export default class Cards extends React.Component {
             <h3 className="Place-intro" >
                 <ul className="place-group" > {
                     places.map(place => (
-                        <div> <Col sm={6} md={4} lg={3} mt={4}>
+                        <div> <Col sm="6" md="4" lg="3" mt="4">
                             <Card key={
                                 place._embedded["pw:location"].id
                                 }
