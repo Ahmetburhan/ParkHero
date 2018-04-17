@@ -5,7 +5,8 @@ import Map from './components/Map';
 import Cards from './components/Cards';
 import FooterPage from './components/Footer';
 import Details from './components/Details';
-
+import request from 'superagent';
+import { Container } from 'reactstrap';
 
 // import NavBar from './components/NavBar';
 
@@ -32,7 +33,23 @@ class App extends Component {
 
   };
   componentDidMount() {
-
+    // console.log(this)
+    // http://api.parkwhiz.com/parking/arlington/601-stadium-dr/?start=1297027800&end=1297047600&key=62d882d8cfe5680004fa849286b6ce20
+    //http://api.parkwhiz.com/search/?destination=312+N+wacker+Dr,+Chicago&start=1523403449&end=1523414249&key=62d882d8cfe5680004fa849286b6ce20
+    request
+      .get('http://api.parkwhiz.com/v4/quotes/?q=coordinates:41.8857256,-87.6369590&start_time=2018-04-23T12:00&end_time=2018-04-23T20:00&api_key=62d882d8cfe5680004fa849286b6ce20').then(res => {
+        if (res.ok) {
+          console.log(res.body)
+          console.log(res.body[0])
+          this.setState({
+            places: res.body,
+            selectedPlace: res.body[0]
+          })
+        } else {
+          console.log('We found nothing')
+        }
+      })
+    // .catch(err => console.log(err))
   };
   render() {
     
@@ -43,19 +60,18 @@ class App extends Component {
       <h1 className = "App-title" > {
         // place._embedded["pw:location"].name
       } </h1> </header>
-      <Details place={this.state.selectedPlace} />
 
-      <Cards handleClick={this.handleClick}/>
-      <Details place={this.state.selectedPlace} />
+      <Details place={this.state.selectedPlace} places={this.state.places} />
+     
+      <Cards handleClick={this.handleClick} places={this.state.places}/>
+      
 
-      <PlaceListItem />
+      {/* <PlaceListItem /> */}
       {/* <Details place={this.state.selectedPlace}/> */}
       
       
       <footer className="App-footer" >
-
       <FooterPage />
-
       </footer>
       </div>
 
