@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+// import ReactStreetview from 'react-streetview';
 
 // import App from '../App';
 import {
@@ -34,15 +36,29 @@ export default class DetailsGallery extends React.Component {
         let photo1;
         let photo2;
         let photo3;
+        let location;
         if (this.props.place) {
             address1 = this.props.place._embedded["pw:location"].address1,
                 name = this.props.place._embedded["pw:location"].name,
                 reviews = this.props.place._embedded["pw:location"]._links["pw:reviews"].href,
                 photo1 = this.props.place._embedded["pw:location"].photos[0].sizes.gallery.URL,
                 photo2 = this.props.place._embedded["pw:location"].photos[1].sizes.gallery.URL,
-                photo3 = this.props.place._embedded["pw:location"].photos[2].sizes.gallery.URL
+                photo3 = this.props.place._embedded["pw:location"].photos[2].sizes.gallery.URL,
+                location = this.props.place._embedded["pw:location"].entrances.coordinates
         }
-        console.log(address1)
+        console.log("jjllooooooojj",photo3)
+
+        // // see https://developers.google.com/maps/documentation/javascript
+        // const googleMapsApiKey = 'AIzaSyCcmHoNv1RH34LAlFdaJnic_8xVset4KX0';
+
+        // // see https://developers.google.com/maps/documentation/javascript/3.exp/reference#StreetViewPanoramaOptions
+        // const streetViewPanoramaOptions = {
+        //     position: { lat:41.885154902900155, len:-87.63554960489276 },
+        //     pov: { heading: 100, pitch: 0 },
+        //     zoom: 1
+        // };
+
+       
         return (<div className="Places" >
             <h3 className="Place-intro" >
                 <div className="place-group" >
@@ -50,40 +66,38 @@ export default class DetailsGallery extends React.Component {
 
                         <Carousel>
                             <Carousel.Item>
-                                <img width={800} height={200} alt={name} src={photo1} />
+                                <img width={1000} height={200} alt={name} src={photo1} />
                                 <Carousel.Caption>
                                     <h3>{name}</h3>
                                     {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img width={800} height={200} alt={name} src={photo2}  />
+                                <img width={1000} height={200} alt={name} src={photo2}  />
                                 <Carousel.Caption>
                                     <h3>{name}</h3>
                                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img width={800} height={200} alt={name} src={photo3}  />
+                                <img width={1000} height={200} alt={name} src={photo3}  />
                                 <Carousel.Caption>
                                     <h3>{name}</h3>
                                     {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                         </Carousel>
+                        <div>
 
+                        
 
-                       
+                            </div>
+                        {/* <div >
+
+                            <iframe width={"100%"} src="https://www.google.com/maps/embed/v1/streetview?location=22222,22222&key=AIzaSyCcmHoNv1RH34LAlFdaJnic_8xVset4KX0" allowfullscreen></iframe>
+                        </div> */}
                     </Col>
-                    <Panel>
-
-                        <iframe src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyCcmHoNv1RH34LAlFdaJnic_8xVset4KX0
-  &location=41.885154902900155,-87.63554960489276
-  &heading=210
-  &pitch=10
-  &fov=35" allowfullscreen>
-  </iframe>
-                        </Panel>
+                    
                 </div> </h3> </div>
         );
     }
