@@ -1,4 +1,6 @@
 import React from 'react';
+import DetailsGallery from './DetailsGallery';
+
 // import App from '../App';
 import {
     Panel, PanelText
@@ -70,7 +72,10 @@ export default class Details extends React.Component {
                                 <Panel.Title componentClass="h3">{name}</Panel.Title>
                             </Panel.Heading>
                             <Panel.Body>
+                                <DetailsGallery {...this.props} />
+
                                 <Panel.Title componentClass="h6"> {address1}</Panel.Title>
+                               
                                 <div>
                                     <h6>{reviews}</h6>
                                 </div>

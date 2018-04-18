@@ -65,10 +65,6 @@ class App extends Component {
      
       <Cards handleClick={this.handleClick} places={this.state.places}/>
       
-
-      {/* <PlaceListItem /> */}
-      {/* <Details place={this.state.selectedPlace}/> */}
-      
       
       <footer className="App-footer" >
       <FooterPage />
