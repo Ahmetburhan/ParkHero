@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import ReactStreetview from 'react-streetview';
 import request from 'superagent';
+import Map from './ThreeDMap';
 
 // import App from '../App';
 import {
@@ -125,6 +126,8 @@ export default class Reiews extends React.Component {
                         ))}</h6> */}
                         {/* reviews array */}
                     
+                        {/* <Map /> */}
+
                         <Carousel>
                             <Carousel.Item>
                                 {/* {this.state.reviews.map(item => (
