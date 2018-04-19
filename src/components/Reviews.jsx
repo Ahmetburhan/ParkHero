@@ -22,9 +22,10 @@ export default class Reiews extends React.Component {
         places: [],
         selected: [],
         selectedPlace: '',
-        reviews: []
+        reviews: [],
+        commentIndex: 0
     }
-    
+
     handleClick = (place) => {
         console.log(place)
         this.setState({ selectedPlace: place })
@@ -60,19 +61,20 @@ export default class Reiews extends React.Component {
         // .catch(err => console.log(err))
     };
 
-
+    
     //this.props.place._embedded["pw:location"].photos[0].sizes.gallery.URL
     render() {
 
         let places = this.state.places;
         let reviews = this.state.reviews;
-        let comments = reviews.filter(review => review.comment);
-        console.log("asdasda",comments)
-        let commentsAll = this.state.reviews.map(item => {
-            // if (item.comment != "") return <ol>{item.comment}</ol>
-            // console.log(item)
-        }) 
-        // console.log("reviews here", reviews)
+        let reviewComments = reviews.filter(review => review.comment);
+        console.log("asdasda", reviewComments)
+        let comments = reviewComments.map( review => review.comment)
+        console.log("comments................", comments[0])
+        // const rotateComment = () => {
+        //     let comment = comments[this.state.commentIndex]
+        //     setInterval(() => this.setState({ commentIndex: this.state.commentIndex++ }), 3000)
+        // };
 
         let detail;
         let address1;
@@ -121,27 +123,29 @@ export default class Reiews extends React.Component {
                         {/* <h6>{this.state.reviews.map(item => (
                             <ol>{item.comment}</ol>
                         ))}</h6> */}
-                        <h6> {commentsAll[9]}</h6>
+                        {/* reviews array */}
+                    
                         <Carousel>
                             <Carousel.Item>
                                 {/* {this.state.reviews.map(item => (
                                     <ol>{item.comment}</ol>
                                 ))} */}
-                                {<img width={1000} height={200} alt={name} src={photo4} />}
+                                <p>{comments[0]}</p>
                                 <Carousel.Caption>
                                     <h3>{name}</h3>
                                     {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img width={1000} height={200} alt={name} src={photo5} />
+                                    <p>{comments[1]}</p>
                                 <Carousel.Caption>
                                     <h3>{name}</h3>
                                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img width={1000} height={200} alt={name} src={photo6} />
+                                <p>{comments[2]}</p>
+
                                 <Carousel.Caption>
                                     <h3>{name}</h3>
                                     {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
