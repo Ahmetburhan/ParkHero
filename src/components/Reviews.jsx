@@ -24,6 +24,7 @@ export default class Reiews extends React.Component {
         selectedPlace: '',
         reviews: []
     }
+    
     handleClick = (place) => {
         console.log(place)
         this.setState({ selectedPlace: place })
