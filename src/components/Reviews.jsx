@@ -40,8 +40,10 @@ export default class Reiews extends React.Component {
         // http://api.parkwhiz.com/parking/arlington/601-stadium-dr/?start=1297027800&end=1297047600&key=62d882d8cfe5680004fa849286b6ce20
         //http://api.parkwhiz.com/search/?destination=312+N+wacker+Dr,+Chicago&start=1523403449&end=1523414249&key=62d882d8cfe5680004fa849286b6ce20
         request
+            // .get('http://api.parkwhiz.com/v4/locations/9172/reviews').then(res => {
             .get('http://api.parkwhiz.com/v4/locations/9172/reviews').then(res => {
                 if (res.ok) {
+                    // console.log("sssssssss", this.state._links["pw:location"].href)
                     console.log("jgggjjg",res.body)
                     console.log(res.body[0])
                     this.setState({
@@ -63,7 +65,13 @@ export default class Reiews extends React.Component {
 
         let places = this.state.places;
         let reviews = this.state.reviews;
-        console.log("reviews here", reviews)
+        let comments = reviews.filter(review => review.comment);
+        console.log("asdasda",comments)
+        let commentsAll = this.state.reviews.map(item => {
+            // if (item.comment != "") return <ol>{item.comment}</ol>
+            // console.log(item)
+        }) 
+        // console.log("reviews here", reviews)
 
         let detail;
         let address1;
@@ -109,9 +117,10 @@ export default class Reiews extends React.Component {
                 <div className="place-group" >
                     <Col reviews={this.state.reviews}>
 
-                        <h6>{this.state.reviews.map(item => (
+                        {/* <h6>{this.state.reviews.map(item => (
                             <ol>{item.comment}</ol>
-                        ))}</h6>
+                        ))}</h6> */}
+                        <h6> {commentsAll[9]}</h6>
                         <Carousel>
                             <Carousel.Item>
                                 {/* {this.state.reviews.map(item => (

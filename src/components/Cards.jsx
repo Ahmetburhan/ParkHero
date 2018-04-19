@@ -65,7 +65,7 @@ export default class Cards extends React.Component {
                                 <CardBody>
                                     <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
                                     <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
-                                    <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText>
+                                    {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
                                     <Button>Button</Button>
                                 </CardBody>
                             </Card>
