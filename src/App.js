@@ -49,7 +49,6 @@ class App extends Component {
           console.log('We found nothing')
         }
       })
-    // .catch(err => console.log(err))
   };
   render() {
     
