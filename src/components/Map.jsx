@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SearchBar from './SearchBar';
 
 import Iframe from 'react-iframe';
 
@@ -7,6 +8,9 @@ export default class Map extends React.Component {
         // if (!this.props.loaded) return <div>Loading...</div>;
 
         return (
+            <div>
+            <SearchBar />
+            
             <Iframe url="https://www.google.com/maps/embed/v1/search?key=AIzaSyCcmHoNv1RH34LAlFdaJnic_8xVset4KX0&q=parking+garages+in+Downtown+San+Francisco"
                 width="100%"
                 height="300px"
@@ -14,7 +18,7 @@ export default class Map extends React.Component {
                 className="myClassname"
                 display="initial"
                 position="relative"
-                allowFullScreen />
+                allowFullScreen /> </div>
         );
     }
 }
