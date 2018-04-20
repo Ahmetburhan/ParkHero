@@ -69,8 +69,8 @@ export default class Details extends React.Component {
             <h3 className="Place-intro" >
                 <div className="place-group" > 
                     <Col sm={6} md={8} lg={9} mt={8}>
-                      <Panel bsStyle="info">
-                            <Panel.Heading>
+                        <Panel bsStyle="info">
+                            <Panel.Heading style={{ backgroundImage: "linear-gradient(to bottom,#31708f 0,#31708f 100%)",color: "azure"}}>
                                 <Panel.Title componentClass="h3">{name}</Panel.Title>
                             </Panel.Heading>
                             <Panel.Body>

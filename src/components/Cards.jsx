@@ -53,7 +53,7 @@ export default class Cards extends React.Component {
                 <ul className="place-group" > {
                     places.map(place => (
                         <div> <Col sm="6" md="4" lg="3" mt="4">
-                            <Card key={
+                                <Card style={{ marginBottom: "1em" }} key={
                                 place._embedded["pw:location"].id
                                 }
                                 onClick={e => {
