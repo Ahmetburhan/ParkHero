@@ -9,16 +9,16 @@ export default class Map extends React.Component {
 
         return (
             <div>
-            <SearchBar />
-            
-            <Iframe url="https://www.google.com/maps/embed/v1/search?key=AIzaSyCcmHoNv1RH34LAlFdaJnic_8xVset4KX0&q=parking+garages+in+Downtown+San+Francisco"
-                width="100%"
-                height="300px"
-                id="myId"
-                className="myClassname"
-                display="initial"
-                position="relative"
-                allowFullScreen /> </div>
+                <SearchBar />
+
+                <Iframe url="https://www.google.com/maps/embed/v1/search?key=AIzaSyCcmHoNv1RH34LAlFdaJnic_8xVset4KX0&q=parking+garages+in+Downtown+San+Francisco"
+                    width="100%"
+                    height="300px"
+                    id="myId"
+                    className="myClassname"
+                    display="initial"
+                    position="relative"
+                    allowFullScreen /> </div>
         );
     }
 }

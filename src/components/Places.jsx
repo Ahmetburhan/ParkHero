@@ -27,8 +27,8 @@ export default class PlaceListItem extends React.Component {
             })
         // .catch(err => console.log(err))
     };
-    render () {
-    
+    render() {
+
         let places = this.state.places
         let imgStyle = {
             width: '155px',
@@ -43,7 +43,7 @@ export default class PlaceListItem extends React.Component {
         }
         // console.log(place)
         return (<div className="Places" >
-             <h3 className="Place-intro" >
+            <h3 className="Place-intro" >
                 <ul className="place-group" > {
                     places.map(place => (
                         <div>
@@ -66,4 +66,5 @@ export default class PlaceListItem extends React.Component {
                     ))
                 } </ul> </h3> </div>
         );
-    }}
+    }
+}

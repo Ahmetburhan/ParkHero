@@ -16,9 +16,9 @@ export default class Cards extends React.Component {
     state = {
         places: this.props.places,
     }
-    
+
     findDetail = id => {
-        let placeDetail =this.props.places.find(place => id === place.location_id);
+        let placeDetail = this.props.places.find(place => id === place.location_id);
         this.props.handleClick(placeDetail)
     }
     render() {
@@ -48,40 +48,40 @@ export default class Cards extends React.Component {
 
         }
         return (
-        <div className="Places" >
-            <h3 className="Place-intro" >
-                <ul className="place-group" > {
-                    places.map(place => (
-                        <div> <Col sm="6" md="4" lg="3" mt="4">
+            <div className="Places" >
+                <h3 className="Place-intro" >
+                    <ul className="place-group" > {
+                        places.map(place => (
+                            <div> <Col sm="6" md="4" lg="3" mt="4">
                                 <Card style={{ marginBottom: "1em" }} key={
-                                place._embedded["pw:location"].id
+                                    place._embedded["pw:location"].id
                                 }
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.findDetail(place._embedded["pw:location"].id)
+                                    onClick={e => {
+                                        e.preventDefault()
+                                        this.findDetail(place._embedded["pw:location"].id)
                                     }}>
-                                <CardImg top width="50%" src={place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL
-                                } alt="Card image cap" />
-                                <CardBody>
-                                    <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
-                                    <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
-                                    {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
-                                    <Button color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }}class="fab fa-apple-pay fa-2x"></i> </h1> </Button>
+                                    <CardImg top width="50%" src={place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL
+                                    } alt="Card image cap" />
+                                    <CardBody>
+                                        <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
+                                        <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
+                                        {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
+                                        <Button color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} class="fab fa-apple-pay fa-2x"></i> </h1> </Button>
 
-                                        
-                                </CardBody>
-                            </Card>
+
+                                    </CardBody>
+                                </Card>
                             </Col>
-                        </div>
-                       
-                       
+                            </div>
 
 
 
 
-                    
-                    ))
-                } </ul> </h3> </div>
+
+
+
+                        ))
+                    } </ul> </h3> </div>
         );
     }
 }

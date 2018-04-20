@@ -47,7 +47,7 @@ export default class Reiews extends React.Component {
             .get('http://api.parkwhiz.com/v4/locations/9172/reviews').then(res => {
                 if (res.ok) {
                     // console.log("sssssssss", this.state._links["pw:location"].href)
-                    console.log("jgggjjg",res.body)
+                    console.log("jgggjjg", res.body)
                     console.log(res.body[0])
                     this.setState({
                         places: res.body,
@@ -62,7 +62,7 @@ export default class Reiews extends React.Component {
         // .catch(err => console.log(err))
     };
 
-    
+
     //this.props.place._embedded["pw:location"].photos[0].sizes.gallery.URL
     render() {
 
@@ -70,7 +70,7 @@ export default class Reiews extends React.Component {
         let reviews = this.state.reviews;
         let reviewComments = reviews.filter(review => review.comment);
         console.log("asdasda", reviewComments)
-        let comments = reviewComments.map( review => review.comment)
+        let comments = reviewComments.map(review => review.comment)
         console.log("comments................", comments[0])
         // const rotateComment = () => {
         //     let comment = comments[this.state.commentIndex]
@@ -125,7 +125,7 @@ export default class Reiews extends React.Component {
                             <ol>{item.comment}</ol>
                         ))}</h6> */}
                         {/* reviews array */}
-                    
+
                         {/* <Map /> */}
 
                         <Carousel>
@@ -140,7 +140,7 @@ export default class Reiews extends React.Component {
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
-                                    <p>{comments[1]}</p>
+                                <p>{comments[1]}</p>
                                 <Carousel.Caption>
                                     <h3>{name}</h3>
                                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
