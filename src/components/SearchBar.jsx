@@ -49,7 +49,7 @@ export default class SearchBar extends React.Component {
                                 }} type="text" value={this.state.value} onChange={this.handleChange} />
                         </Col>
 
-                        <Col sm={4}>
+                        <Col sm={3}>
                             <Input style={{
                                 color: "white",
                                 fontSize: "1.6em",
