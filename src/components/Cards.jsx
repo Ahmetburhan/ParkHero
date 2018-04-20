@@ -1,6 +1,8 @@
 import React from 'react';
 import Modaler from './Modal';
 import JwModal from 'jw-react-modal';
+import Iframe from 'react-iframe';
+
 
 
 // import App from '../App';
@@ -53,6 +55,12 @@ export default class Cards extends React.Component {
         let address1;
         let name;
         let reviews;
+        let iframeProps = {
+            src: 'https://www.parkwhiz.com/find_and_book/?location_id=6460&start_time=2017-12-23T12:00&end_time=2017-12-23T20:00&pwa=ee51',
+            width: 800,
+            height: 1067
+            
+        }
         if (this.props.place) {
             address1 = this.props.place._embedded["pw:location"].address1,
                 name = this.props.place._embedded["pw:location"].name,
@@ -83,9 +91,13 @@ export default class Cards extends React.Component {
                                         
                                         <JwModal id="cardModal">
                                             <h1>Booking is one step away</h1>
-                                            <p>
-                                                Add iFrame in here :)
-    </p>
+                                            <iframe
+                                                className='embedly-embed'
+                                                scrolling='no'
+                                                frameborder='0'
+                                                allowfullscreen
+                                                { ...iframeProps }
+                                            />
                                             <Button color="danger" onClick={JwModal.close('cardModal')}>Close</Button>
                                         </JwModal>
                                     </CardBody>
