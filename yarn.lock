@@ -4713,6 +4713,10 @@ jsx-ast-utils@^2.0.0:
   dependencies:
     array-includes "^3.0.3"
 
+jw-react-modal@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/jw-react-modal/-/jw-react-modal-1.0.3.tgz#dd2e52d526a34db236f8617de1f58c8ac826d457"
+
 kdbush@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/kdbush/-/kdbush-1.0.1.tgz#3cbd03e9dead9c0f6f66ccdb96450e5cecc640e0"

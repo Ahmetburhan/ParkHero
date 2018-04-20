@@ -1,4 +1,8 @@
 import React from 'react';
+import Modaler from './Modal';
+import JwModal from 'jw-react-modal';
+
+
 // import App from '../App';
 import {
     Col, Card, CardImg, CardText, CardBody,
@@ -24,6 +28,15 @@ export default class Cards extends React.Component {
     render() {
         console.log(this.props)
 
+        const customStyles = {
+            body: {
+                backgroundColor: 'red',
+                fontSize: 100
+            },
+            background: {
+                backgroundColor: 'green',
+            }
+        };
         let places = this.props.places
         console.log(places)
 
@@ -66,9 +79,15 @@ export default class Cards extends React.Component {
                                         <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
                                         <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
                                         {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
-                                        <Button color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} class="fab fa-apple-pay fa-2x"></i> </h1> </Button>
-
-
+                                        <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} class="fab fa-apple-pay fa-2x"></i> </h1> </Button>
+                                        
+                                        <JwModal id="cardModal">
+                                            <h1>Booking is one step away</h1>
+                                            <p>
+                                                Add iFrame in here :)
+    </p>
+                                            <Button color="danger" onClick={JwModal.close('cardModal')}>Close</Button>
+                                        </JwModal>
                                     </CardBody>
                                 </Card>
                             </Col>
