@@ -37,16 +37,21 @@ export default class DetailsGallery extends React.Component {
         let photo2;
         let photo3;
         let location;
+        let lat;
+        let long;
+        let price;
         if (this.props.place) {
             address1 = this.props.place._embedded["pw:location"].address1,
                 name = this.props.place._embedded["pw:location"].name,
                 reviews = this.props.place._embedded["pw:location"]._links["pw:reviews"].href,
+                price = this.props.place.purchase_options[0].price.USD,
                 photo1 = this.props.place._embedded["pw:location"].photos[0].sizes.gallery.URL,
                 photo2 = this.props.place._embedded["pw:location"].photos[1].sizes.gallery.URL,
                 photo3 = this.props.place._embedded["pw:location"].photos[2].sizes.gallery.URL,
-                location = this.props.place._embedded["pw:location"].entrances.coordinates
+                lat = this.props.place._embedded["pw:location"].entrances[0].coordinates[0],
+                long = this.props.place._embedded["pw:location"].entrances[0].coordinates[1]
         }
-        console.log("jjllooooooojj",photo3)
+        console.log("jjllooooooojj",lat,long)
 
         // // see https://developers.google.com/maps/documentation/javascript
         // const googleMapsApiKey = 'AIzaSyCcmHoNv1RH34LAlFdaJnic_8xVset4KX0';

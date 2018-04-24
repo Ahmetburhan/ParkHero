@@ -65,7 +65,7 @@ class App extends Component {
 
       <Details place={this.state.selectedPlace} places={this.state.places} />
      
-      <Cards handleClick={this.handleClick} places={this.state.places} place={this.state.selectedPlace} />
+      <Cards handleClick={this.handleClick} places={this.state.places} place={this.state.selectedPlace}/>
       
       
       <footer className="App-footer" >

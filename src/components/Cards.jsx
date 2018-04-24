@@ -54,7 +54,9 @@ export default class Cards extends React.Component {
         let detail;
         let address1;
         let name;
-        let pricez;
+        let lat;
+        let long;
+        let price;
         let reviews;
         let iframeProps = {
             src: 'https://www.parkwhiz.com/find_and_book/?location_id=8905&start_time=2017-12-23T12:00&end_time=2017-12-23T20:00&pwa=ee51',
@@ -66,9 +68,13 @@ export default class Cards extends React.Component {
             address1 = this.props.place._embedded["pw:location"].address1,
                 name = this.props.place._embedded["pw:location"].name,
                 reviews = this.props.place._embedded["pw:location"]._links["pw:reviews"].href, 
-                pricez = this.props.place.purchase_options[0].price.USD
+                lat = this.props.place._embedded["pw:location"].entrances[0].coordinates[0],
+                long = this.props.place._embedded["pw:location"].entrances[0].coordinates[1],
+                price = this.props.place.purchase_options[0].price.USD
+
         }
-        console.log("testttaaaaaattt", pricez)
+        console.log("testttaaaaaattt", lat,long)
+        console.log("testttaaaaaattt", price)
 
         // console.log(this.props.place.purchase_options[0].price.USD)
 
@@ -91,7 +97,8 @@ export default class Cards extends React.Component {
                                     <CardBody>
                                         <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
                                         <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
-                                        {this.state.pricez ? <h1 >Book me for $</h1>  : null}
+                                        <h1 >Book me for ${price} </h1> 
+
                                                                                {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
                                         <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
                                         

@@ -41,7 +41,7 @@ export default class PlaceListItem extends React.Component {
             flex: '0 0 auto',
             margin: '0 10px'
         }
-        // console.log(place)
+        
         return (<div className="Places" >
             <h3 className="Place-intro" >
                 <ul className="place-group" > {
