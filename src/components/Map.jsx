@@ -28,7 +28,7 @@ export default class Map extends React.Component {
             <div>
                 <SearchBar 
                   value={this.state.value}
-                  updateMap={ () => this.handleChange}/>
+                  updateMap={this.handleChange}/>
 
                 <Iframe url={`https://www.google.com/maps/embed/v1/search?key=AIzaSyCcmHoNv1RH34LAlFdaJnic_8xVset4KX0&q=parking+garages+in+${this.state.value}`}
                     width="100%"

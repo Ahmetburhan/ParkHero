@@ -1,6 +1,7 @@
 import React from 'react';
 import DetailsGallery from './DetailsGallery';
 import Reviews from './Reviews';
+import JwModal from 'jw-react-modal';
 
 
 // import App from '../App';
@@ -35,6 +36,8 @@ export default class Details extends React.Component {
             alignItems: 'left',
             justifyContent: 'center'
         }
+
+       
         // console.log(place)
         //let detail = (
         // <div> <Col sm={6} md={8} lg={9} mt={8}>
@@ -56,15 +59,94 @@ export default class Details extends React.Component {
         // </Col>
         // </div>
         // )
+
+       
+
+
+        // //working iframe
+        // const IframeEmbed = ({ id }) => (
+
+        //     <div className="iframe-wrapper">
+        //         <div className="iframer">
+        //             <iframe
+        //                 className="youtube-frame"
+        //                 src={`http://www.youtube.com/embed/xDMP3i36naA`}
+        //                 width='800'
+        //                 height='1067'
+        //                 allowFullScreen
+        //             />
+        //         </div>
+        //     </div>
+
+        // );
+
+        // let iframeProps = {
+        //     src: `https://www.parkwhiz.com/find_and_book/?start_time=2017-12-23T12:00&end_time=2017-12-23T20:00&pwa=ee51&location_id=${8905}`,
+        //     width: 800,
+        //     height: 1067
+
+        // }
         let detail;
         let address1;
         let name;
         let reviews;
+        let price;
+        let quotes;
+        let lat;
+        let long;
+        let iframeProps = {
+            src: `http://www.youtube.com/embed/xDMP3i36naA`,
+            width: 800,
+            height: 1067
+
+        }
         if (this.props.place) {
             address1 = this.props.place._embedded["pw:location"].address1,
                 name = this.props.place._embedded["pw:location"].name,
-                reviews = this.props.place._embedded["pw:location"]._links["pw:reviews"].href
+                price = this.props.place.purchase_options[0].price.USD,
+                reviews = this.props.place._embedded["pw:location"]._links["pw:reviews"].href,
+                quotes = this.props.place._embedded["pw:location"]._links["pw:quotes"].href
+                lat = this.props.place._embedded["pw:location"].entrances[0].coordinates[0],
+                    long = this.props.place._embedded["pw:location"].entrances[0].coordinates[1]
+            
         }
+        console.log("testttttt",{lat})
+        console.log("rrrrrrrrrrr", {long})
+        console.log(places)
+
+        const IframeEmbed = ({ id }) => (
+
+            <div className="iframe-wrapper">
+                <div className="iframer">
+                    <iframe
+                        className="youtube-frame"
+                        src={`http://www.youtube.com/embed/xDMP3i36naA`}
+                        width='800'
+                        height='1067'
+                        allowFullScreen
+                    />
+                </div>
+            </div>
+
+        );
+        const MapEmbed = ({ id }) => (
+
+            <div className="iframe-wrapper">
+                <div className="iframer">
+                    <iframe
+                        className="youtube-frame"
+                        src={`https://www.google.com/maps/embed/v1/streetview?key=AIzaSyAYMzbG37X6USShijS7wjYjxRA58AJiJIM&location=${lat},${long}&heading=165&pitch=0&fov=75`}
+                        width='100%'
+                        height='300'
+                        allowFullScreen
+                    />
+                </div>
+            </div>
+
+        );
+
+
+
         return (<div className="Places" >
             <h3 className="Place-intro" >
                 <div className="place-group" >
@@ -81,8 +163,25 @@ export default class Details extends React.Component {
                                 {/* <div>
                                     <h6>{reviews}</h6>
                                 </div> */}
+                                <h1> You can book me for ${price}</h1>
+                                
+                                <Button onClick={JwModal.open('cardModal')} color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
+                                <JwModal id="cardModal">
+                                    <h1>Booking is one step away</h1>
+                                    <IframeEmbed/>
+                                    {/* <iframe
+                                        className='embedly-embed'
+                                        scrolling='no'
+                                        frameBorder='0'
+                                        allowFullScreen
+                                        { ...iframeProps }
+                                    /> */}
+                                    <Button color="danger" onClick={JwModal.close('cardModal')}>Close</Button>
+                                </JwModal>
                                 <h4> Reviews</h4>
+
                                 <Reviews {...this.props} />
+                                <MapEmbed />
                             </Panel.Body>
                         </Panel>
 
