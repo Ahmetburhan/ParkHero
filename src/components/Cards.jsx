@@ -73,7 +73,8 @@ export default class Cards extends React.Component {
                 <h3 className="Place-intro" >
                     <ul className="place-group" > {
                         places.map(place => (
-                            <div> <Col sm="6" md="4" lg="3" mt="4">
+                            <div key={
+                                place._embedded["pw:location"].id}> <Col sm="6" md="4" lg="3" mt="4">
                                 <Card style={{ marginBottom: "1em" }} key={
                                     place._embedded["pw:location"].id
                                 }
@@ -87,15 +88,15 @@ export default class Cards extends React.Component {
                                         <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
                                         <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
                                         {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
-                                        <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} class="fab fa-apple-pay fa-2x"></i> </h1> </Button>
+                                        <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
                                         
                                         <JwModal id="cardModal">
                                             <h1>Booking is one step away</h1>
                                             <iframe
                                                 className='embedly-embed'
                                                 scrolling='no'
-                                                frameborder='0'
-                                                allowfullscreen
+                                                frameBorder='0'
+                                                allowFullScreen
                                                 { ...iframeProps }
                                             />
                                             <Button color="danger" onClick={JwModal.close('cardModal')}>Close</Button>

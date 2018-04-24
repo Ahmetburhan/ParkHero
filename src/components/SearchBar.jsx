@@ -19,6 +19,11 @@ export default class SearchBar extends React.Component {
         this.setState({ value: event.target.value });
     }
 
+    handleClick = (e) => {
+        e.preventDefault();
+        this.props.updateMap(this.state.value);
+    }
+
     // handleSubmit(event) {
     //     alert('A search query was submitted: ' + this.state.value);
     //     event.preventDefault();
@@ -51,7 +56,6 @@ export default class SearchBar extends React.Component {
                                 }} 
                             
                                 onChange={this.handleChange}
-                                onClick={this.props.updateMap(this.state.value)}
                                 type="text" />
                         </Col>
 
@@ -70,7 +74,8 @@ export default class SearchBar extends React.Component {
                             }}
                                 
                                 type="submit"
-                                value="FIND PARKING Nearby" />
+                                value="FIND PARKING Nearby"
+                                onClick={this.handleClick} />
                         </Col>
                     </FormGroup>
                 </Form>
