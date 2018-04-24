@@ -21,6 +21,8 @@ class App extends Component {
     selected: [],
     selectedPlace:'',
   }
+
+
   handleClick = (place) => {
     console.log(place)
     this.setState({selectedPlace:place})

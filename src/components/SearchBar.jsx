@@ -8,20 +8,21 @@ import Pin from '../../src/assets/images/map-pin-icon.svg'
 export default class SearchBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { value: '' };
-
+        this.state = { value: '' }; 
+        console.log("props", props)
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
+        console.log("target value", event.target.value)
         this.setState({ value: event.target.value });
     }
 
-    handleSubmit(event) {
-        alert('A search query was submitted: ' + this.state.value);
-        event.preventDefault();
-    }
+    // handleSubmit(event) {
+    //     alert('A search query was submitted: ' + this.state.value);
+    //     event.preventDefault();
+    // }
 
     render() {
         // const img = require('../../src/assets/images/magnifying-glass-icon.svg');
@@ -45,8 +46,13 @@ export default class SearchBar extends React.Component {
                                     height: 45,
                                     fontSize: 18,
                                     paddingLeft: 65
+                                    
 
-                                }} type="text" value={this.state.value} onChange={this.handleChange} />
+                                }} 
+                            
+                                onChange={this.handleChange}
+                                onClick={this.props.updateMap(this.state.value)}
+                                type="text" />
                         </Col>
 
                         <Col sm={3}>
@@ -62,6 +68,7 @@ export default class SearchBar extends React.Component {
                                 backgroundPosition: "right 25px center",
                                 backgroundSize: 18
                             }}
+                                
                                 type="submit"
                                 value="FIND PARKING Nearby" />
                         </Col>
