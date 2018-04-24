@@ -54,9 +54,10 @@ export default class Cards extends React.Component {
         let detail;
         let address1;
         let name;
+        let pricez;
         let reviews;
         let iframeProps = {
-            src: 'https://www.parkwhiz.com/find_and_book/?location_id=6460&start_time=2017-12-23T12:00&end_time=2017-12-23T20:00&pwa=ee51',
+            src: 'https://www.parkwhiz.com/find_and_book/?location_id=8905&start_time=2017-12-23T12:00&end_time=2017-12-23T20:00&pwa=ee51',
             width: 800,
             height: 1067
             
@@ -64,10 +65,13 @@ export default class Cards extends React.Component {
         if (this.props.place) {
             address1 = this.props.place._embedded["pw:location"].address1,
                 name = this.props.place._embedded["pw:location"].name,
-                reviews = this.props.place._embedded["pw:location"]._links["pw:reviews"].href
-            console.log(address1)
-
+                reviews = this.props.place._embedded["pw:location"]._links["pw:reviews"].href, 
+                pricez = this.props.place.purchase_options[0].price.USD
         }
+        console.log("testttaaaaaattt", pricez)
+
+        // console.log(this.props.place.purchase_options[0].price.USD)
+
         return (
             <div className="Places" >
                 <h3 className="Place-intro" >
@@ -87,7 +91,8 @@ export default class Cards extends React.Component {
                                     <CardBody>
                                         <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
                                         <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
-                                        {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
+                                        {this.state.pricez ? <h1 >Book me for $</h1>  : null}
+                                                                               {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
                                         <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
                                         
                                         <JwModal id="cardModal">

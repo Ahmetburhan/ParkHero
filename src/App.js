@@ -20,6 +20,7 @@ class App extends Component {
     places: [],
     selected: [],
     selectedPlace:'',
+    value: '',
   }
 
 
@@ -39,7 +40,7 @@ class App extends Component {
     // http://api.parkwhiz.com/parking/arlington/601-stadium-dr/?start=1297027800&end=1297047600&key=62d882d8cfe5680004fa849286b6ce20
     //http://api.parkwhiz.com/search/?destination=312+N+wacker+Dr,+Chicago&start=1523403449&end=1523414249&key=62d882d8cfe5680004fa849286b6ce20
     request
-      .get('http://api.parkwhiz.com/v4/quotes/?q=coordinates:37.791365,-122.393741&start_time=2018-04-23T12:00&end_time=2018-04-23T20:00&api_key=62d882d8cfe5680004fa849286b6ce20').then(res => {
+      .get('http://api.parkwhiz.com/v4/quotes/?start_time=2018-04-23T12:00&end_time=2018-04-23T20:00&api_key=62d882d8cfe5680004fa849286b6ce20%27&q=coordinates:37.791365,-122.393741').then(res => {
         if (res.ok) {
           console.log(res.body)
           console.log(res.body[0])
@@ -64,7 +65,7 @@ class App extends Component {
 
       <Details place={this.state.selectedPlace} places={this.state.places} />
      
-      <Cards handleClick={this.handleClick} places={this.state.places}/>
+      <Cards handleClick={this.handleClick} places={this.state.places} place={this.state.selectedPlace} />
       
       
       <footer className="App-footer" >
