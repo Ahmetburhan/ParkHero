@@ -1,14 +1,21 @@
 {
-  "name": "project-example",
+  "name": "project-ParkHero",
   "version": "1.0.0",
   "main": "server/index.js",
   "license": "MIT",
   "scripts": {
     "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "client": "yarn start prefix",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "cacheDirectories": [
     "server/node_modules",
     "client/node_modules"
-  ]
+  ],
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.3"
+  }
 }
