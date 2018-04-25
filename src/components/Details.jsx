@@ -163,7 +163,7 @@ export default class Details extends React.Component {
                             <Panel.Body>
                                 <DetailsGallery {...this.props} />
 
-                                <Panel.Title componentClass="h6"> {address1}</Panel.Title>
+                                {/* <Panel.Title componentClass="h6"> {address1}</Panel.Title> */}
 
                                 {/* <div>
                                     <h6>{reviews}</h6>
@@ -183,7 +183,7 @@ export default class Details extends React.Component {
                                     /> */}
                                     <Button color="danger" onClick={JwModal.close('cardModal')}>Close</Button>
                                 </JwModal>
-                                <h4> Reviews</h4>
+                                <h4> People <i style={{ verticalAlign: "-0.34em" }} className="fas fa-hands-heart fa-2x"></i>  ParkHero</h4>
 
                                 <Reviews {...this.props} />
                                 <MapEmbed />

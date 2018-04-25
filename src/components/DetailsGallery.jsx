@@ -109,13 +109,13 @@ export default class DetailsGallery extends React.Component {
                             <Carousel.Item>
                                 <img width={1000} height={200} alt={name} src={photo3}  />
                                 <Carousel.Caption>
-                                    <h3>{name}</h3>
+                                    {<h3>{name}</h3>}
                                     {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                         </Carousel>
                         <Container>
-                            <h2>How to Park @ <h3>{name}</h3></h2>
+                            <h2>How to Park @ <h3>{name} near {address1}</h3></h2>
                             <Row>
 
                                 <Col xs="6" sm="4">
