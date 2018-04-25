@@ -22,9 +22,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+   "build": "react-scripts build && rm -rd ../server/public && mv -f build ../server/public",
+  "test": "react-scripts test --env=jsdom",
+  "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:5000"
   
