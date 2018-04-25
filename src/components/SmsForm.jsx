@@ -80,15 +80,15 @@ export default class SearchBar extends React.Component {
                         <Col sm={3}>
                             <Input style={{
                                 color: "white",
-                                fontSize: "1.1em",
+                                fontSize: "0.7em",
                                 fontStyle: "oblique",
                                 backgroundColor: "#ef4555",
-                                paddingRight: 20,
+                                paddingRight: 10,
                                 height: 45,
                                 // backgroundImage: `url(${Img})`,
                                 backgroundRepeat: "no-repeat",
                                 backgroundPosition: "right 25px center",
-                                backgroundSize: 18
+                                backgroundSize: 13
                             }}
                                 
                                 type="submit"
