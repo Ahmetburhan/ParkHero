@@ -115,7 +115,7 @@ export default class DetailsGallery extends React.Component {
                             </Carousel.Item>
                         </Carousel>
                         <Container>
-                            <h2>How to Park @ <h3>{name} near {address1}</h3></h2>
+                            <h2 style={{ fontSize: "1.5em", fontFamily: 'Alfa Slab One', color: "#212529" }}> How to Park @ <h3>{name} near {address1}</h3></h2>
                             <Row>
 
                                 <Col xs="6" sm="4">

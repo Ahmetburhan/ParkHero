@@ -107,7 +107,11 @@ export default class Cards extends React.Component {
                         places.map(place => (
                             <div key={
                                 place._embedded["pw:location"].id}> <Col sm="6" md="4" lg="3" mt="4">
-                                <Card style={{ marginBottom: "1em" }} key={
+                                    <Card style={{
+                                        fontFamily: 'Satisfy',
+                                        fontSize: "4em",
+                                        marginBottom: "1em"
+                                    }} key={
                                     place._embedded["pw:location"].id
                                 }
                                     onClick={e => {
@@ -117,12 +121,18 @@ export default class Cards extends React.Component {
                                     <CardImg top width="50%" src={place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL
                                     } alt="Card image cap" />
                                     <CardBody className="card-body" >
-                                        <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
-                                        <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
+                                            <CardTitle style={{
+                                                fontFamily: 'Passion One',
+                                                fontSize: "0.3em",
+                                            }}>{place._embedded["pw:location"].name}</CardTitle>
+                                            <CardSubtitle style={{
+                                                fontFamily: 'Passion One',
+                                                fontSize: "0.25em",
+                                            }}>Near {place._embedded["pw:location"].address1}</CardSubtitle>
                                         {/* <h1 >Book me for ${price} </h1>  */}
 
                                                                                {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
-                                        <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
+                                        <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
                                         
                                         <JwModal id="cardModal">
                                             <h1>Booking is one step away</h1>

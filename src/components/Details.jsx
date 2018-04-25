@@ -1,6 +1,9 @@
 import React from 'react';
 import DetailsGallery from './DetailsGallery';
 import Reviews from './Reviews';
+import SmsForm from './SmsForm';
+
+
 import JwModal from 'jw-react-modal';
 
 
@@ -157,7 +160,7 @@ export default class Details extends React.Component {
                 <div className="place-group" >
                     <Col sm={6} md={8} lg={9} mt={8}>
                         <Panel bsStyle="info">
-                            <Panel.Heading style={{ backgroundImage: "linear-gradient(to bottom,#31708f 0,#31708f 100%)", color: "azure" }}>
+                            <Panel.Heading style={{ fontSize: "1.5em",fontFamily: 'Alfa Slab One',backgroundImage: "linear-gradient(to bottom,#31708f 0,#31708f 100%)", color: "azure" }}>
                                 <Panel.Title componentClass="h3">{name}</Panel.Title>
                             </Panel.Heading>
                             <Panel.Body>
@@ -183,9 +186,15 @@ export default class Details extends React.Component {
                                     /> */}
                                     <Button color="danger" onClick={JwModal.close('cardModal')}>Close</Button>
                                 </JwModal>
-                                <h4> People <i style={{ verticalAlign: "-0.34em" }} className="fas fa-hands-heart fa-2x"></i>  ParkHero</h4>
+                                <div><h1 style={{
+                                    fontFamily: 'Alfa Slab One',
+                                }}> People <i style={{
+                                    color: "tomato", verticalAlign: "-0.34em"
+                                }} className="fas fa-heart fa-2x"></i>  ParkHero</h1></div>
 
                                 <Reviews {...this.props} />
+                                <SmsForm {...this.props} />
+                                
                                 <MapEmbed />
                             </Panel.Body>
                         </Panel>

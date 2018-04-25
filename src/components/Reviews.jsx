@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 // import ReactStreetview from 'react-streetview';
 import request from 'superagent';
 import Map from './ThreeDMap';
+import './Reviews.css';
+
 
 // import App from '../App';
 import {
@@ -119,7 +121,11 @@ export default class Reiews extends React.Component {
         return (<div className="Places" >
             <h3 className="Place-intro" >
                 <div className="place-group" >
-                    <Col reviews={this.state.reviews}>
+                    <Col style={{
+                        fontFamily: 'Satisfy',
+                        fontSize: "2em"
+                    }}
+                    reviews={this.state.reviews}>
 
                         {/* <h6>{this.state.reviews.map(item => (
                             <ol>{item.comment}</ol>
@@ -135,14 +141,14 @@ export default class Reiews extends React.Component {
                                 ))} */}
                                 <p>{comments[0]}</p>
                                 <Carousel.Caption>
-                                    <h3>{name}</h3>
+                                    {/* <h3>{name}</h3> */}
                                     {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
                                 <p>{comments[1]}</p>
                                 <Carousel.Caption>
-                                    <h3>{name}</h3>
+                                    {/* <h3>{name}</h3> */}
                                     {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
@@ -150,7 +156,32 @@ export default class Reiews extends React.Component {
                                 <p>{comments[2]}</p>
 
                                 <Carousel.Caption>
-                                    <h3>{name}</h3>
+                                    {/* <h3>{name}</h3> */}
+                                    {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                {/* {this.state.reviews.map(item => (
+                                    <ol>{item.comment}</ol>
+                                ))} */}
+                                <p>{comments[3]}</p>
+                                <Carousel.Caption>
+                                    {/* <h3>{name}</h3> */}
+                                    {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <p>{comments[4]}</p>
+                                <Carousel.Caption>
+                                    {/* <h3>{name}</h3> */}
+                                    {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <p>{comments[5]}</p>
+
+                                <Carousel.Caption>
+                                    {/* <h3>{name}</h3> */}
                                     {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
                                 </Carousel.Caption>
                             </Carousel.Item>
