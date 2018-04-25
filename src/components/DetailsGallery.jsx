@@ -115,7 +115,7 @@ export default class DetailsGallery extends React.Component {
                             </Carousel.Item>
                         </Carousel>
                         <Container>
-                            <h2>How to Park</h2>
+                            <h2>How to Park @ <h3>{name}</h3></h2>
                             <Row>
 
                                 <Col xs="6" sm="4">
