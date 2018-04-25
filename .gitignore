@@ -3,4 +3,6 @@
 node_modules/
 jspm_packages/
 .env
+server/.env
+client/.env
 .DS_Store
