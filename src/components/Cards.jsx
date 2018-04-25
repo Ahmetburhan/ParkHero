@@ -2,6 +2,8 @@ import React from 'react';
 import Modaler from './Modal';
 import JwModal from 'jw-react-modal';
 import Iframe from 'react-iframe';
+import './Cards.css';
+
 
 
 
@@ -94,7 +96,7 @@ export default class Cards extends React.Component {
                                     }}>
                                     <CardImg top width="50%" src={place._embedded["pw:location"].photos["0"].sizes.hub_frontpage.URL
                                     } alt="Card image cap" />
-                                    <CardBody>
+                                    <CardBody className="card-body" >
                                         <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
                                         <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
                                         <h1 >Book me for ${price} </h1> 
