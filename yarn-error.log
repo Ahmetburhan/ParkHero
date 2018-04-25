@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn start prefix
+  /usr/local/bin/node /usr/local/bin/yarn start
 
 PATH: 
-  /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/Apple/Desktop/Boot Camp/Project Finale/ParkHero/node_modules/.bin:/usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/Apple/Desktop/Boot Camp/Project Finale/ParkHero/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+  /usr/local/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/Apple/Desktop/Boot Camp/Project Finale/ParkHero/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
 Yarn version: 
   1.5.1
@@ -23,7 +23,7 @@ npm manifest:
       "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
       "start": "node server/index.js",
       "server": "nodemon server/index.js",
-      "client": "yarn start prefix",
+      "client": "yarn start",
       "dev": "concurrently \"npm run server\" \"npm run client\""
     },
     "cacheDirectories": [
@@ -46,7 +46,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c node server/index.js prefix
+  Arguments: -c node server/index.js
   Directory: /Users/Apple/Desktop/Boot Camp/Project Finale/ParkHero
   Output:
   
