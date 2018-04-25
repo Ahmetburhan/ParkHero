@@ -94,6 +94,10 @@ export default class Details extends React.Component {
         let quotes;
         let lat;
         let long;
+        let instImg1;
+        let instImg2;
+        let instImg3;
+
         let iframeProps = {
             src: `http://www.youtube.com/embed/xDMP3i36naA`,
             width: 800,
@@ -113,6 +117,7 @@ export default class Details extends React.Component {
         console.log("testttttt",{lat})
         console.log("rrrrrrrrrrr", {long})
         console.log(places)
+        console.log("address1",address1)
 
         const IframeEmbed = ({ id }) => (
 

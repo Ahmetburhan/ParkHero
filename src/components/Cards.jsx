@@ -60,6 +60,15 @@ export default class Cards extends React.Component {
         let long;
         let price;
         let reviews;
+        let inst1;
+        let inst2;
+        let inst3;
+        let instImg1;
+        let instImg2;
+        let instImg3;
+        let photo1;
+        let photo2;
+        let photo3;
         let iframeProps = {
             src: 'https://www.parkwhiz.com/find_and_book/?location_id=8905&start_time=2017-12-23T12:00&end_time=2017-12-23T20:00&pwa=ee51',
             width: 800,
@@ -72,11 +81,22 @@ export default class Cards extends React.Component {
                 reviews = this.props.place._embedded["pw:location"]._links["pw:reviews"].href, 
                 lat = this.props.place._embedded["pw:location"].entrances[0].coordinates[0],
                 long = this.props.place._embedded["pw:location"].entrances[0].coordinates[1],
+                photo1 = this.props.place._embedded["pw:location"].photos[0].sizes.gallery.URL,
+                photo2 = this.props.place._embedded["pw:location"].photos[1].sizes.gallery.URL,
+                photo3 = this.props.place._embedded["pw:location"].photos[2].sizes.gallery.URL,
                 price = this.props.place.purchase_options[0].price.USD
+                // inst1 = this.props.place.purchase_options[0].validation.validation_steps[0].instructions,
+                // inst2 = this.props.place.purchase_options[0].validation.validation_steps[1].instructions,
+                // inst3 = this.props.place.purchase_options[0].validation.validation_steps[2].instructions,
+                // instImg1 = this.props.place.purchase_options[0].validation.validation_steps[0].icon.path,
+                // instImg2 = this.props.place.purchase_options[0].validation.validation_steps[1].icon.path,
+                // instImg3 = this.props.place.purchase_options[0].validation.validation_steps[3].icon.path,
+                // price = this.props.place.purchase_options[0].price.USD
 
         }
         console.log("testttaaaaaattt", lat,long)
-        console.log("testttaaaaaattt", price)
+        // console.log("testttaaaddaaaattt", price)
+        console.log("instructions", inst1, inst2, inst3)
 
         // console.log(this.props.place.purchase_options[0].price.USD)
 
@@ -99,7 +119,7 @@ export default class Cards extends React.Component {
                                     <CardBody className="card-body" >
                                         <CardTitle>{place._embedded["pw:location"].name}</CardTitle>
                                         <CardSubtitle>Near {place._embedded["pw:location"].address1}</CardSubtitle>
-                                        <h1 >Book me for ${price} </h1> 
+                                        {/* <h1 >Book me for ${price} </h1>  */}
 
                                                                                {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
                                         <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
