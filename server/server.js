@@ -29,7 +29,7 @@ const client = require('twilio')(accountSid, authToken);
 
 client.messages
   .create({
-    to: '+13472653021',
+    to: '+16507712966',
     from: '+16504828352',
     body: 'This is confirming that message sent',
     mediaUrl: 'https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg',
