@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #415765;
+  height: 150px;
+  padding: 0px;
+  color: white;
+  height: 300px;
+}
+.App-footer h6 .h6 {
+  background-image: url("./assets/images/diagonal-cut-p.png");
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: bottom 0px left -5px;
+  background-color: #415765;
+  padding: 0px;
+  color: white;
+  height: 400px;
+  font-size: 3rem !important;
+
+}
+
+
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,73 @@
+.card:hover {
+    background-color: rgb(194, 194, 194);
+    /* transform: scale(0.89);
+    /* transform: translateX( -100%) rotateY( -180deg); */
+    /* filter: brightness(75%);
+    transform: scale(0.89, 0.89) rotate(-2deg); */
+    -moz-animation: slide-up 3s infinite,
+    fade-in-out 3s infinite linear;
+    -webkit-animation: slide-up 3s infinite,
+    fade-in-out 3s infinite linear;
+     
+    
+    /* -moz-animation: fade-in-out 3s infinite linear;
+      -webkit-animation: fade-in-out 3s infinite linear;
+    */
+    
+
+    
+}
+.card{
+     transform-origin: right center;
+}
+.CardImg {
+    transition: all 0.25s ease-in-out;
+}
+
+@-moz-keyframes slide-up {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -50px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@-webkit-keyframes slide-up {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -50px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@-moz-keyframes fade-in-out {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade-in-out {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
