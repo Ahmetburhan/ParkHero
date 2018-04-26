@@ -5,8 +5,7 @@ import {
 } from 'reactstrap';
 import Img from '../../src/assets/images/magnifying-glass-icon.svg'
 import Pin from '../../src/assets/images/map-pin-icon.svg'
-import GoogleLogin from './GoogleLogin'
-import platform from 'platform'
+// import GoogleLogin from './GoogleLogin'
 export default class SearchAutoComplete extends React.Component {
     constructor(props) {
         super(props);
@@ -16,15 +15,15 @@ export default class SearchAutoComplete extends React.Component {
         }
     }
 
-    componentDidMount() {
-        const script = document.createElement("script");
+    // componentDidMount() {
+    //     const script = document.createElement("script");
 
-        script.src = "https://apis.google.com/js/platform.js";
-        script.async = true;
-        script.defer = true;
+    //     script.src = "https://apis.google.com/js/platform.js";
+    //     script.async = true;
+    //     script.defer = true;
 
-        document.body.appendChild(script);
-    }
+    //     document.body.appendChild(script);
+    // }
 
     handleChange = (address) => {
         this.setState({ address })
@@ -128,7 +127,7 @@ export default class SearchAutoComplete extends React.Component {
                             <Col sm={1}>
                                 <div className="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                                 <div>
-                                <a href="#" onclick="signOut();">Sign out</a>
+                                {/* <a href="#" onclick="signOut();">Sign out</a> */}
                                 </div>
 
 
