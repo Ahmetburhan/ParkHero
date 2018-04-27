@@ -19,7 +19,7 @@
   },
   "scripts": {
     "test": "nyc --reporter=html mocha",
-    "start": "node index.js",
-    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
-  }
+    "start": "node index.js"
+  },
+  "proxy": "http://localhost:5000"
 }

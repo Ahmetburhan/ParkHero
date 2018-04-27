@@ -5,11 +5,10 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
-    "start": "node server/index.js",
-    "server": "nodemon server/index.js",
-    "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "client": "cd client && yarn start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "server": "cd server && nodemon index.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "cacheDirectories": [
     "server/node_modules",
@@ -18,5 +17,6 @@
   "dependencies": {
     "concurrently": "^3.5.1",
     "express": "^4.16.3"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }

@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn start
+  /usr/local/bin/node /usr/local/bin/yarn dev
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
@@ -21,10 +21,10 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
-      "start": "node server/index.js",
-      "server": "nodemon server/index.js",
+      "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
       "client": "cd client && yarn start",
-      "dev": "concurrently \"npm run server\" \"npm run client\""
+      "server": "nodemon server.js",
+      "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
     },
     "cacheDirectories": [
       "server/node_modules",
@@ -33,7 +33,9 @@ npm manifest:
     "dependencies": {
       "concurrently": "^3.5.1",
       "express": "^4.16.3"
-    }
+    },
+    "proxy": "http://localhost:8080"
+  
   }
 
 yarn manifest: 
@@ -44,9 +46,9 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit code: 127
   Command: sh
-  Arguments: -c node server/index.js
+  Arguments: -c concurrently --kill-others-on-fail "yarn server" "yarn client"
   Directory: /Users/Apple/Desktop/Boot Camp/Project Finale/ParkHero
   Output:
   

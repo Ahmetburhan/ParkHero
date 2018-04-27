@@ -46,7 +46,7 @@ export default class SearchBar extends React.Component {
                 if (res.ok) {
                     console.log(res.body)
                     console.log(res.body[0])
-                   alert('mesaj gitti')
+                    alert(`Your message sent successfully please check your # => ${this.state.value}`)
                     
                 } else {
                     console.log('We found nothing')
