@@ -38,7 +38,7 @@ app.post('/send-text', (req, res) => {
     mediaUrl: `${photo}`,
   })
   .then(message => res.send({ok: true}))
-.catch(message => res.send({ ok: false }));
+// .catch(message => res.send({ ok: false }));
 });
 
 app.use(express.static(`${__dirname}/public`));
