@@ -19,6 +19,8 @@ export default class SearchAutoComplete extends React.Component {
 
     handleChange = (address) => {
         this.setState({ address })
+        console.log("address:", address)
+
     }
     
     // onSignIn = (googleUser) => {
@@ -38,17 +40,13 @@ export default class SearchAutoComplete extends React.Component {
 
     // }
 
-    handleSelect = () => {
-        let address = this.state.address
+    handleSelect = (address) => {
 
         // console.log('see getCoord',event.target.value)
         geocodeByAddress(address)
             .then(results => getLatLng(results[0]))
             .then(latLng => {
-                this.props.getCoords(latLng),
-                    this.props.getCoords(address)
-
-                console.log("here is the", address)
+                this.props.getCoords(latLng, address);
             })
             .catch(error => console.error('Error', error))
     }
