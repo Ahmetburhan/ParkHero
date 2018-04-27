@@ -28,13 +28,14 @@ app.post('/send-text', (req, res) => {
   const phoneNumber = req.body.phoneNumber;
   const name = req.body.name;
   const address1 = req.body.address1;
+  const photo = req.body.photo1;
 
   client.messages
   .create({
     to: `+1${phoneNumber}`,
     from: '+16504828352',
     body: `You parking Spot: ${name} , available @ ${address1}`,
-    mediaUrl: 'https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg',
+    mediaUrl: `${photo}`,
   })
   .then(message => res.send({ok: true}))
 .catch(message => res.send({ ok: false }));

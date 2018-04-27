@@ -35,6 +35,7 @@ export default class SearchBar extends React.Component {
                 phoneNumber: this.state.value,
                 name: this.props.place._embedded["pw:location"].name,
                 address1: this.props.place._embedded["pw:location"].address1,
+                photo1: this.props.place._embedded["pw:location"].photos[0].sizes.gallery.URL,
             })
             .end()
             .then(res => {
