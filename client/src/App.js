@@ -43,8 +43,9 @@ class App extends Component {
       })
 
   };
-  getCoordsMap = (obj) => {
+  getCoordsMap = (obj,address) => {
     console.log('you hit ', obj)
+    console.log('you hit ', address)
     request
       .get(`http://api.parkwhiz.com/v4/quotes/?start_time=2018-04-23T12:00&end_time=2018-04-23T20:00&api_key=62d882d8cfe5680004fa849286b6ce20%27&q=coordinates:${obj.lat},${obj.lng}`).then(res => {
         if (res.ok) {
@@ -53,7 +54,8 @@ class App extends Component {
           console.log("its coming here",this.state.address)
           this.setState({
             places: res.body,
-            selectedPlace: res.body[0]
+            selectedPlace: res.body[0],
+            selectedAddress: address
           })
         } else {
           console.log('We found nothing')
@@ -78,7 +80,7 @@ class App extends Component {
     return ( <div className = "App" >
       <header className = "App-header" >
       {/* <NavBar /> */}
-      <Map getCoordsMap={this.getCoordsMap} address={this.state.address}/>
+      <Map getCoordsMap={this.getCoordsMap} selectedAddress={this.state.selectedAddress} address={this.state.address}/>
       <h1 className = "App-title" > {
         // place._embedded["pw:location"].name
       } </h1> </header>

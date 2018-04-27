@@ -5,6 +5,8 @@ import {
 import Img from '../../src/assets/images/magnifying-glass-icon.svg'
 import Pin from '../../src/assets/images/map-pin-icon.svg'
 import Phone from '../../src/assets/images/Red_Phone_Font-Awesome.svg.png'
+import request from 'superagent';
+
 
 export default class SearchBar extends React.Component {
     constructor(props) {
@@ -22,8 +24,44 @@ export default class SearchBar extends React.Component {
 
     handleClick = (e) => {
         e.preventDefault();
-        this.props.updateMap(this.state.value);
+        
+        this.setState({
+            loading: true
+        })
+
+        request
+            .post('http://localhost:5000/send-text')
+            .send({ 
+                phoneNumber: this.state.value,
+                name: this.props.place._embedded["pw:location"].name,
+                address1: this.props.place._embedded["pw:location"].address1,
+            })
+            .end()
+            .then(res => {
+                this.setState({
+                    loading: false
+                })
+
+                if (res.ok) {
+                    console.log(res.body)
+                    console.log(res.body[0])
+                   alert('mesaj gitti')
+                    
+                } else {
+                    console.log('We found nothing')
+                    alert('mesaj gitmedi')
+                    
+                }
+                
+            })
+            .catch(err => {
+                this.setState({
+                    loading: false
+                })
+            })
     }
+
+    
 
     // handleSubmit(event) {
     //     alert('A search query was submitted: ' + this.state.value);
@@ -78,9 +116,11 @@ export default class SearchBar extends React.Component {
                         </Col>
 
                         <Col sm={3}>
+                            
                             <Input style={{
                                 color: "white",
                                 fontSize: "0.7em",
+                                display: this.state.loading ? "none" : "block",
                                 fontStyle: "oblique",
                                 backgroundColor: "#ef4555",
                                 paddingRight: 10,

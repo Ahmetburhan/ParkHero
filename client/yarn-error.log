@@ -17,7 +17,7 @@ npm manifest:
   {
     "name": "parkhero",
     "version": "0.1.0",
-    "private": false,
+    "private": true,
     "dependencies": {
       "bootstrap": "^4.1.0",
       "dotenv": "^5.0.1",
@@ -40,7 +40,8 @@ npm manifest:
     },
     "scripts": {
       "start": "react-scripts start",
-      "build": "react-scripts build && rm -rd ../server/public && mv -f build ../server/public",
+      "build": "react-scripts build",
+      // "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
       "test": "react-scripts test --env=jsdom",
       "eject": "react-scripts eject"
     },
@@ -8907,17 +8908,10 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 127
-  Command: sh
-  Arguments: -c react-scripts start
-  Directory: /Users/Apple/Desktop/Boot Camp/Project Finale/ParkHero/client
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
-      at emitTwo (events.js:126:13)
-      at ChildProcess.emit (events.js:214:7)
-      at maybeClose (internal/child_process.js:925:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+  SyntaxError: /Users/Apple/Desktop/Boot Camp/Project Finale/ParkHero/client/package.json: Unexpected token / in JSON at position 745
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1036:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
+      at <anonymous>

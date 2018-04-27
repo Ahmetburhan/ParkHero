@@ -15,15 +15,7 @@ export default class SearchAutoComplete extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     const script = document.createElement("script");
 
-    //     script.src = "https://apis.google.com/js/platform.js";
-    //     script.async = true;
-    //     script.defer = true;
-
-    //     document.body.appendChild(script);
-    // }
 
     handleChange = (address) => {
         this.setState({ address })
@@ -48,11 +40,13 @@ export default class SearchAutoComplete extends React.Component {
 
     handleSelect = () => {
         let address = this.state.address
-        console.log('see getCoord',address)
+
+        // console.log('see getCoord',event.target.value)
         geocodeByAddress(address)
             .then(results => getLatLng(results[0]))
             .then(latLng => {
-                this.props.getCoords(latLng)
+                this.props.getCoords(latLng),
+                    this.props.getCoords(address)
 
                 console.log("here is the", address)
             })
@@ -64,9 +58,7 @@ export default class SearchAutoComplete extends React.Component {
             <PlacesAutocomplete
                 value={this.state.address}
                 onChange={this.handleChange}
-                onSelect={this.handleSelect}
-                
-            >
+                onSelect={this.handleSelect}>
                 {({ getInputProps, suggestions, getSuggestionItemProps }) => (
                     <div>
                         <FormGroup row>
