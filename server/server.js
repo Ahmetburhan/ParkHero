@@ -43,6 +43,10 @@ app.post('/send-text', (req, res) => {
 
 app.use(express.static(`${__dirname}/public`));
 
+// Express only serves static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
 
 module.exports = app;
 
