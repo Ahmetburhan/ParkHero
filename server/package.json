@@ -8,6 +8,7 @@
     "dotenv": "^5.0.1",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
+    "foobar": "^1.1.0",
     "twilio": "^3.15.1"
   },
   "devDependencies": {
@@ -19,7 +20,6 @@
   "scripts": {
     "test": "nyc --reporter=html mocha",
     "start": "node index.js",
-      "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
-    
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
   }
 }
