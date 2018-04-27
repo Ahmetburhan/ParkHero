@@ -25,16 +25,18 @@ var authToken = process.env.TWILIO_AUTH_TOKEN;
 // var token = process.env.TWILIO_AUTH_TOKEN;
 
 // require the Twilio module and create a REST client
-const client = require('twilio')(accountSid, authToken);
 
-client.messages
-  .create({
-    to: '+16507712966',
-    from: '+16504828352',
-    body: 'This is confirming that message sent',
-    mediaUrl: 'https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg',
-  })
-  .then(message => console.log(message.sid));
+
+// const client = require('twilio')(accountSid, authToken);
+
+// client.messages
+//   .create({
+//     to: '+16507712966',
+//     from: '+16504828352',
+//     body: 'This is confirming that message sent',
+//     mediaUrl: 'https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg',
+//   })
+//   .then(message => console.log(message.sid));
 
 module.exports = app;
 

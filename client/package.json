@@ -1,7 +1,7 @@
 {
   "name": "parkhero",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "bootstrap": "^4.1.0",
     "dotenv": "^5.0.1",
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && rm -rd ../server/public && mv -f build ../server/public",
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

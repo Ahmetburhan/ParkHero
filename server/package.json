@@ -17,6 +17,9 @@
     "supertest": "^3.0.0"
   },
   "scripts": {
-    "test": "nyc --reporter=html mocha"
+    "test": "nyc --reporter=html mocha",
+    "start": "node index.js",
+      "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
+    
   }
 }
