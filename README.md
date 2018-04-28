@@ -2,7 +2,15 @@
 
 ParkHero is an app that uses React technologies for dynamic front end interacting with an Express back end server and MongoDB for our database in order to provide a dynamic parking lot experience. For web scraping, the app uses the `request` from superagemt multi times in client/react side.
 
+## Demo of the code can be watch thru our youtube channel
+https://youtu.be/UcKDdcHC44E  this is with sound and HD video.
+
+![Alt text](./screenshots/out.gif?raw=true "App Preview")
+
+
+
 ## Code Example
+
 
 ![Alt text](./screenshots/1.png?raw=true "Overview")
 
