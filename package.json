@@ -6,10 +6,9 @@
   "scripts": {
     "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
     "start": "concurrently --kill-others-on-fail \"npm server\" \"npm client\"",
-    "client": "cd client && yarn start",
+    "client": "cd client && npm start",
     "server": "cd server && nodemon index.js",
-    "dev": "concurrently --kill-others-on-fail \"npm server\" \"npm client\"",
-      "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "cacheDirectories": [
     "server/node_modules",
@@ -21,5 +20,3 @@
   },
   "proxy": "http://localhost:5000"
 }
-
-
