@@ -4,28 +4,28 @@ ParkHero is an app that uses React technologies for dynamic front end interactin
 
 ## Code Example
 
-![Alt text](./screenshots/1.jpg?raw=true "Overview")
+![Alt text](./screenshots/1.png?raw=true "Overview")
 Using React we inserted a number of different components that dynamcially communicate with our backend servers and various API technologies to make up our ParkHero app.
 
-![Alt text](./screenshots/2.jpg?raw=true "Google Sign-In")
+![Alt text](./screenshots/2.png?raw=true "Google Sign-In")
 The first component that the user would be encouraged to use is the Google Sign-In feature, which uses Google Sign-in API to provide our website with basic Google/Gmail related information to create a unique user experience. This allows the user to do things like favorite parking locations.
 
-![Alt text](./screenshots/3.jpg?raw=true "Google Searchbar")
+![Alt text](./screenshots/3.png?raw=true "Google Searchbar")
 In relation to the actual function of our app, we begin with our Google Searchbar, which uses the Google Autocomplete API. The user can input a desired location into the searchbar, which then gives a dropdown of close options.
 
-![Alt text](./screenshots/4.jpg?raw=true "Google Map")
+![Alt text](./screenshots/4.png?raw=true "Google Map")
 Once searched, our map component uses Google Maps API to display a map of the searched locations with pins of the parking locations close to the searched area.
 
-![Alt text](./screenshots/5.jpg?raw=true "Parking Location Overview")
+![Alt text](./screenshots/5.png?raw=true "Parking Location Overview")
 The next component which uses the ParkWhiz API, displays all nearby parking locations' address, nearby street, and streetview image to the location you searched in this displayed format.
 
-![Alt text](./screenshots/6.jpg?raw=true "Individual Parking Location")
+![Alt text](./screenshots/6.png?raw=true "Individual Parking Location")
 This is a closer view of one of the location's displays. You can click on the book & pay button which will send you to the page for payment information so you can reserve your parking spot.
 
-![Alt text](./screenshots/7.jpg?raw=true "Google Streetview")
+![Alt text](./screenshots/7.png?raw=true "Google Streetview")
 You can click on the streetview image, which uses Google Street View API, in order to get a closer look at any one of the parking locations' street views. 
 
-![Alt text](./screenshots/8.jpg?raw=true "SMS")
+![Alt text](./screenshots/8.png?raw=true "SMS")
 Once you have selected a parking location, you can input your cell phone number to get the streetview image as well as a customized message with information about your spot.
 
 
