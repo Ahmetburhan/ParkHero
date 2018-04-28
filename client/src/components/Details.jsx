@@ -121,6 +121,7 @@ export default class Details extends React.Component {
         console.log("rrrrrrrrrrr", {long})
         console.log(places)
         console.log("address1",address1)
+        console.log("quotesssss", quotes)
 
         const IframeEmbed = ({ id }) => (
 
@@ -153,7 +154,7 @@ export default class Details extends React.Component {
 
         );
 
-
+        const location = `https://www.parkwhiz.com/find_and_book/?start_time=2017-12-23T12:00&end_time=2017-12-23T20:00&pwa=ee51&location_id=8905`
 
         return (<div className="Places" >
             <h3 className="Place-intro" >
@@ -173,7 +174,7 @@ export default class Details extends React.Component {
                                 </div> */}
                                 <h1> You can book me for ${price}</h1>
                                 
-                                <Button onClick={JwModal.open('cardModal')} color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
+                                <Button href={location} color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
                                 <JwModal id="cardModal">
                                     <h1>Booking is one step away</h1>
                                     <IframeEmbed/>

@@ -12,7 +12,18 @@ const customStyles = {
     }
 };
 
+
+
 export default class Modaler extends React.Component {
+    componentDidMount = () => {
+
+        JwModal.open('jw-modal-1')
+
+
+    };
+
+
+
     render() {
         return (
             <div>

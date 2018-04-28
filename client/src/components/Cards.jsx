@@ -99,7 +99,7 @@ export default class Cards extends React.Component {
         console.log("instructions", inst1, inst2, inst3)
 
         // console.log(this.props.place.purchase_options[0].price.USD)
-
+        const location = `https://www.parkwhiz.com/find_and_book/?start_time=2017-12-23T12:00&end_time=2017-12-23T20:00&pwa=ee51&location_id=${8905}`
         return (
             <div className="Places" >
                 <h3 className="Place-intro" >
@@ -132,8 +132,8 @@ export default class Cards extends React.Component {
                                         {/* <h1 >Book me for ${price} </h1>  */}
 
                                                                                {/* <CardText>{place._embedded["pw:location"]._links["pw:reviews"].href}</CardText> */}
-                                        <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
-                                        
+                                        {/* <Button onClick={JwModal.open('cardModal')}color="success" size="lg" block> <h1>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button> */}
+                                        <Button href={location} color="success" size="lg" block> <h1 style={{ fontSize: 18 }}>Book  <i style={{ verticalAlign: "-0.34em" }} className="fab fa-apple-pay fa-2x"></i> </h1> </Button>
                                         <JwModal id="cardModal">
                                             <h1>Booking is one step away</h1>
                                             <iframe

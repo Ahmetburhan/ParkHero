@@ -7,6 +7,7 @@ import FooterPage from './components/Footer';
 import Details from './components/Details';
 import request from 'superagent';
 import { Container } from 'reactstrap';
+import Modaler from './components/Modal';
 
 // import NavBar from './components/NavBar';
 
@@ -24,9 +25,13 @@ class App extends Component {
   }
 
   componentDidMount() {
+   
     // console.log(this)
     // http://api.parkwhiz.com/parking/arlington/601-stadium-dr/?start=1297027800&end=1297047600&key=62d882d8cfe5680004fa849286b6ce20
     //http://api.parkwhiz.com/search/?destination=312+N+wacker+Dr,+Chicago&start=1523403449&end=1523414249&key=62d882d8cfe5680004fa849286b6ce20
+
+
+
 
     request
       .get('http://api.parkwhiz.com/v4/quotes/?start_time=2018-04-23T12:00&end_time=2018-04-23T20:00&api_key=62d882d8cfe5680004fa849286b6ce20%27&q=coordinates:37.791365,-122.393741').then(res => {
@@ -92,6 +97,7 @@ class App extends Component {
       
       <footer className="App-footer" >
       <FooterPage />
+      <Modaler/>
       </footer>
       </div>
 
