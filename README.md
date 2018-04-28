@@ -1,4 +1,4 @@
-## Park HERO into
+## Park HERO intro
 
 ParkHero is an app that uses React technologies for dynamic front end interacting with an Express back end server and MongoDB for our database in order to provide a dynamic parking lot experience. For web scraping, the app uses the `request` from superagemt multi times in client/react side.
 
