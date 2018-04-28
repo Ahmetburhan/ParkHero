@@ -5,10 +5,10 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "concurrently --kill-others-on-fail \"npm server\" \"npm client\"",
     "client": "cd client && yarn start",
     "server": "cd server && nodemon index.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "dev": "concurrently --kill-others-on-fail \"npm server\" \"npm client\"",
       "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "cacheDirectories": [
