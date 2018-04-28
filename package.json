@@ -5,9 +5,12 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
-    "start": "concurrently --kill-others-on-fail \"npm server\" \"npm client\"",
-    "client": "cd client && npm start",
-    "server": "cd server && nodemon index.js",
+    "build": "cd client && npm run build",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",        
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build", 
+    "start": "concurrently  \"npm server\" \"npm client\"",
+    "client": "cd client && npm run start",
+    "server": "cd server && node index.js",
     "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "cacheDirectories": [
