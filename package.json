@@ -9,7 +9,7 @@
     "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "heroku-postbuild": "yarn build",
    "install": "(cd client && yarn) && (cd server && yarn)",
-    "start": "concurrently \"cd client && PORT=3000 yarn start\" \"cd server && PORT=3001 yarn start\"",
+    "start": "concurrently \"cd client && PORT=3000 yarn start\" \"cd server && PORT=5000 yarn start\"",
     "client": "cd client && yarn start",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
     "start:prod": "cd server && yarn start:prod"
