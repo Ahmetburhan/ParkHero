@@ -48,6 +48,13 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
+// add the path module
+import path from 'path'
+// get reference to the client build directory
+const staticFiles = express.static(path.join(__dirname, '../../client/build'))
+// pass the static files (react app) to the express app. 
+app.use(staticFiles)
+
 module.exports = app;
 
 
