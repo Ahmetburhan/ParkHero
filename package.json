@@ -1,31 +1,28 @@
 {
-  "name": "project-ParkHero",
+  "name": "server",
   "version": "1.0.0",
-  "main": "server/index.js",
+  "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "preinstall": "npm install --prefix server && npm install --prefix client && cd client && npm run build && cd ..",
-    "build": "concurrently \"cd client && yarn build\" \"cd server && yarn build\"",
-    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
-    "heroku-postbuild": "yarn build",
-   "install": "(cd client && yarn) && (cd server && yarn)",
-    "start": "concurrently \"cd client && PORT=3000 yarn start\" \"cd server && PORT=5000 yarn start\"",
-    "client": "cd client && yarn start",
-    "dev": "concurrently \"npm run client\" \"npm run server\"",
-    "start:prod": "cd server && yarn start:prod"
-  },
-  "cacheDirectories": [
-    "server/node_modules",
-    "client/node_modules"
-  ],
   "dependencies": {
-    "babel-cli": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "body-parser": "^1.18.2",
-    "concurrently": "^3.5.1",
-    "express": "^4.16.3"
+    "dotenv": "^5.0.1",
+    "eslint": "^4.19.1",
+    "express": "^4.16.3",
+    "foobar": "^1.1.0",
+    "twilio": "^3.15.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.0",
+    "nyc": "^11.6.0",
+    "supertest": "^3.0.0"
+  },
+  "scripts": {
+    "test": "nyc --reporter=html mocha",
+    "start": "nodemon index.js"
   },
   "proxy": "http://localhost:5000"
 }
