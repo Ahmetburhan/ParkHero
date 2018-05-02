@@ -1,11 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose'); 
+const MessagesSent = require('./models/messagesSent');
+
 require('dotenv').config()
 const app = express();
 app.use(bodyParser.json());
 const path = require('path');
 
-
+//setting up the database
+const config = require('./config/database'); 
+mongoose.Promise = Promise; 
+mongoose 
+  .connect(config.database) 
+  // .connect('mongodb+srv://mongodb-stitch-parkhero-cumon:' + process.env.MONGO_PSW + '@cluster0-xleqa.mongodb.net/test') 
+  // .connect("mongodb://localhost/parkHero")
+  .then( result => {
+    console.log(`Connected to database '${result.connections[0].name}' on ${result.connections[0].host}:${result.connections[0].port}`)
+  })
+  .catch(err => console.log('There was an error with your connection:', err));
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -56,6 +69,24 @@ app.use(express.static(__dirname + '/client/build/'))
 // const staticFiles = express.static(path.join(__dirname, '../../client/build/'))
 // // pass the static files (react app) to the express app. 
 // app.use(staticFiles)
+
+
+app.post('/messagesSent', (req, res) => { //phoneNumber, address, placeName, userID
+  let { phoneNumber, address, placeName } = req.body;
+  const messagesSent = new MessagesSent({
+    phoneNumber,
+    address,
+    placeName
+  });
+  messagesSent.save()
+  .then(result => console.log(result))
+  .catch(err => res.json(err));
+
+  console.log('message sent')
+});
+
+
+
 
 module.exports = app;
 

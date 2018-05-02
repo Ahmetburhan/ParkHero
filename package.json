@@ -12,6 +12,7 @@
     "eslint": "^4.19.1",
     "express": "^4.16.3",
     "foobar": "^1.1.0",
+    "mongoose": "^5.0.17",
     "twilio": "^3.15.1"
   },
   "devDependencies": {
