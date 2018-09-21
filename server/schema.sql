@@ -1,0 +1,37 @@
+DROP DATABASE IF EXISTS ParkHero;
+
+CREATE DATABASE ParkHero;
+
+USE ParkHero;
+
+CREATE TABLE Users
+(
+	UserId INT NOT NULL AUTO_INCREMENT,
+    FirstName varchar(40) NOT NULL,
+    LastName varchar(40) NOT NULL,
+    PRIMARY KEY(UserId)
+);
+
+CREATE TABLE Reviews
+(
+	ReviewId INT NOT NULL AUTO_INCREMENT,
+    ParkSpotId INT NOT NULL,
+    UserId INT NOT NULL,
+    ReviewText varchar(300) NOT NULL,
+    Rating INT(1) NOT NULL,
+    PRIMARY KEY(ReviewId)
+);
+
+CREATE TABLE FavoriteSpots
+(
+	Id INT NOT NULL AUTO_INCREMENT,
+    UserId INT NOT NULL,
+    ParkSpotId INT NOT NULL,
+    PRIMARY KEY(Id)
+);
+
+ALTER TABLE Reviews
+ADD CONSTRAINT FK_UserId FOREIGN KEY(UserId) REFERENCES Users(UserId);
+
+ALTER TABLE FavoriteSpots
+ADD CONSTRAINT FK_UserId FOREIGN KEY(UserId) REFERENCES Users(UserId);
